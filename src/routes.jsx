@@ -1,25 +1,27 @@
-// src/routes.jsx
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About'; // Only one About import
-import Directors from './pages/Directors';
-import Actors from './pages/Actors';
-import Movie from './pages/Movie';
-import NavBar from './components/NavBar';
+import Home from "./pages/Home";
+import Movie from "./pages/Movie";
+import Directors from "./pages/Directors";
+import Actors from "./pages/Actors";
+import ErrorPage from "./pages/ErrorPage";
 
-function App() {
-  return (
-    <Router>
-      <NavBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/directors" element={<Directors />} />
-        <Route path="/actors" element={<Actors />} />
-        <Route path="/movies/:id" element={<Movie />} />
-      </Routes>
-    </Router>
-  );
-}
+const routes = [
+    {
+      path: "/",
+      element: <Home />,
+      errorElement: <ErrorPage />
+    },
+    {
+      path: "/movie/:id",
+      element: <Movie />
+    },
+    {
+      path: "/directors",
+      element: <Directors />
+    },
+    {
+      path:"/actors",
+      element: <Actors />
+    }
+  ]
 
-export default App;
+export default routes;

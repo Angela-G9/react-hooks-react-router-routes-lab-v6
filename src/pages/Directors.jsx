@@ -1,20 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import ReusableCard from '../components/ReusableCard';
-import NavBar from '../components/NavBar';
+import { useEffect, useState } from "react";
+import Card from "../components/ReusableCard";
+import NavBar from "../components/NavBar";
 
 function Directors() {
-  const [directors, setDirectors] = useState([]);
+  const [directors, setDirectors] = useState([])
 
-  useEffect(() => {
-    fetch('http://localhost:4000/directors')
-      .then((r) => r.json())
-      .then((data) => setDirectors(data))
-      .catch((error) => console.error(error));
-  }, []);
+  useEffect(() =>{
+    fetch("http://localhost:4000/directors")
+    .then(r => r.json())
+    .then(data => setDirectors(data))
+    .catch(error => console.error(error))
+  }, [])
 
-  const directorList = directors.map((director) => (
-    <ReusableCard key={director.id} name={director.name} movies={director.movies} />
-  ));
+  const directorList = directors.map(director => <Card key={director.id} name={director.name} movies={director.movies} />)
 
   return (
     <>
