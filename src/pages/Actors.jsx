@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Card from '../components/ReusableCard';
+import ReusableCard from '../components/ReusableCard';
 import NavBar from '../components/NavBar';
 
 function Actors() {
@@ -13,7 +13,11 @@ function Actors() {
   }, []);
 
   const actorList = actors.map((actor) => (
-    <Card key={actor.id} name={actor.name} movies={actor.movies} />
+    <ReusableCard 
+      key={actor.id} 
+      name={actor.name} 
+      movies={actor.movies} 
+    />
   ));
 
   return (
